@@ -14,11 +14,15 @@ public class PathfindingRobot {
     };
 
     public static void main(String[] args) {
+        runPathfinding();
+    }
+    
+    public static void runPathfinding() {
         ArrayList<String> answerList = findPath(A);
         System.out.println(answerList);
         printPath(answerList, A.length, A[0].length);
     }
-
+    
 
     public static ArrayList<String> findPath(int[][] map) {
         ArrayList<String> path = new ArrayList<>();
