@@ -15,6 +15,7 @@ public class Client{
         for (ArrayList<Integer> row : test_array_2) {
             System.out.println(row);
         }
+        PathfindingRobot.runPathfinding(test_array_2);
 
     }
 }

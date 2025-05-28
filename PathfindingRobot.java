@@ -91,4 +91,32 @@ public class PathfindingRobot {
             System.out.println("]");
         }
     }
+    public static void runPathfinding(ArrayList<ArrayList<Integer>> externalMap) {
+        map = externalMap;
+    
+        int rows = map.size(), cols = map.get(0).size();
+        int[][] grid = new int[rows][cols];
+    
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < cols; j++)
+                grid[i][j] = map.get(i).get(j) == 1 ? 1 : 0;
+    
+        locateStartingPoint(grid);
+    
+        if (startRow == -1) {
+            System.out.println("No valid wall-starting point found.");
+            return;
+        }
+    
+        ArrayList<String> path = new ArrayList<>();
+        boolean[][] visited = new boolean[rows][cols];
+    
+        if (dfs(grid, startRow, startCol, path, visited)) {
+            System.out.println(path);
+            printPath(path, rows, cols);
+        } else {
+            System.out.println("No valid path from wall to wall found.");
+        }
+    }
+    
 }
